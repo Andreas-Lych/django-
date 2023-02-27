@@ -21,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-6bi%a7ze(9&!-a%ex!1yfc-3u8x*itzh1vj8-pc8vwba7=fj*3'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "True") == "True"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'profiles',
+    'products'
 ]
 
 MIDDLEWARE = [
@@ -79,7 +81,7 @@ DATABASES = {
        "ENGINE": "django.db.backends.postgresql",
        "NAME": "django",
        "USER": "django",
-       "PASSWORD": os.getenv('POSTGRES_PASSWORD'),
+       "PASSWORD": os.getenv('POSTGRES_PASSWORD', 'django'),
        "HOST": "localhost",
        "PORT": 5432,
    }
