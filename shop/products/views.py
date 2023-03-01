@@ -1,17 +1,18 @@
 import logging
-
-from django.conf import settings
 from django.http import HttpResponse
+
+from products.models import Product
 
 logger = logging.getLogger(__name__)
 
 
 def index(request):
-    if request.GET.get("param"):
-        logger.info(f"My custom var = {settings.MY_CUSTOM_VARIABLE}")
-        logger.info(f"My param = {request.GET.get('param')}")
-    return HttpResponse("Shop index view")
-
+    products = Product.objects.all()
+    query = request.GET.get("query")
+    if query is not None:
+        products = products.filter(title__icontains=query)
+    string = "<br>".join([str(p) for p in products])
+    return HttpResponse(string)
 
 from django.shortcuts import render
 
