@@ -7,8 +7,8 @@ class PurchaseAdminInLine(admin.TabularInline):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ("title", "price", "description", "created_at")
-    fields = ("title", "price", "description", "created_at")
+    list_display = ("title", "price", "description", "created_at", "color",)
+    fields = ("title", "price", "description", "created_at", "color",)
     readonly_fields = ("created_at",)
     search_fields = ("title", "description")
     inlines = (PurchaseAdminInLine,)
