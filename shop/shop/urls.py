@@ -18,10 +18,11 @@ from django.urls import path
 
 
 from products.views import index
-from profiles.views import profiles
+from profiles.views import profiles, register_user
 
 urlpatterns = [
    path('admin/', admin.site.urls),
    path('profiles/', profiles, name='profiles'),
+   path('register/', register_user, name='register'),
    path('', index, name='index'),
 ]
