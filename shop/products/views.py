@@ -3,6 +3,9 @@ from django.http import HttpResponse
 
 from products.models import Product
 
+from products.forms import NewProduct
+from django.shortcuts import render
+
 logger = logging.getLogger(__name__)
 
 
@@ -20,6 +23,6 @@ def index(request):
     string = "<br>".join([str(p) for p in products])
     return HttpResponse(string)
 
-from django.shortcuts import render
-
-# Create your views here.
+def NewProduct(request):
+        form = NewProduct()
+        return render(request, "newproduct.html", {"form": form})

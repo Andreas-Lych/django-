@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 
-from products.views import index
+from products.views import index, NewProduct
 from profiles.views import profiles, register_user, user
 
 urlpatterns = [
@@ -25,5 +25,6 @@ urlpatterns = [
    path('profiles/', profiles, name='profiles'),
    path('register/', register_user, name='register'),
    path('user/', user, name='user'),
+   path('newproduct/', NewProduct, name='newproduct'),
    path('', index, name='index'),
 ]
