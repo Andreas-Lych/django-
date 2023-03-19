@@ -2,14 +2,15 @@ from django.conf import settings
 from django.db import models
 
 COLOR_CHOICES = (
-    ("RED", "red"),
-    ("GREEN", "green"),
-    ("BLUE", "blue"),
+    ("RED", "Red"),
+    ("GREEN", "Green"),
+    ("BLUE", "Blue"),
+    ("WHITE", "White"),
 )
 
 class Product(models.Model):
     title = models.CharField(max_length=255)
-    color = models.CharField(max_length=32, choices=COLOR_CHOICES, default="GREEN")
+    color = models.CharField(max_length=32, choices=COLOR_CHOICES, default="WHITE")
     price = models.IntegerField(default=0)
     description = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(
