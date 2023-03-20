@@ -7,7 +7,7 @@ COLOR_CHOICES = (
     ("BLUE", "Blue"),
     ("WHITE", "White"),
 )
-class NewProduct(forms.Form):
+class AddProduct(forms.Form):
     car_name = forms.CharField(max_length=255)
     model_name = forms.CharField(max_length=255)
     price_per_hour = forms.IntegerField(min_value=1, required=False)

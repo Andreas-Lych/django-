@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 from products.models import Product
 
-from products.forms import NewProduct
+from products.forms import AddProduct
 from django.shortcuts import render
 
 logger = logging.getLogger(__name__)
@@ -23,6 +23,6 @@ def index(request):
     string = "<br>".join([str(p) for p in products])
     return HttpResponse(string)
 
-def NewProduct(request):
-        form = NewProduct()
-        return render(request, "newproduct.html", {"form": form})
+def addproduct(request):
+        form = AddProduct()
+        return render(request, "addproduct.html", {"form": form})
