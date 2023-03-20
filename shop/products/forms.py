@@ -12,4 +12,4 @@ class AddProduct(forms.Form):
     model_name = forms.CharField(max_length=255)
     price_per_hour = forms.IntegerField(min_value=1, required=False)
     Description = forms.CharField(max_length=255)
-    color = choices=COLOR_CHOICES
+    color = forms.ChoiceField(choices=COLOR_CHOICES)
