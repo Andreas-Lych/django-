@@ -13,3 +13,10 @@ class AddProduct(forms.Form):
     price_per_hour = forms.IntegerField(min_value=1, required=False)
     Description = forms.CharField(max_length=255)
     color = forms.ChoiceField(choices=COLOR_CHOICES)
+
+class Maindetails(forms.Form):
+    car_name = forms.CharField(max_length=255)
+    model_name = forms.CharField(max_length=255)
+    price_per_hour = forms.IntegerField(min_value=1, required=False)
+    Description = forms.CharField(max_length=255)
+    color = forms.ChoiceField(choices=COLOR_CHOICES)
