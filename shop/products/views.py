@@ -20,8 +20,7 @@ def index(request):
     if purchases__count is not None:
         products = products.filter(purchases__count=purchases__count)
 
-    string = "<br>".join([str(p) for p in products])
-    return HttpResponse(string)
+    return render(request, "index.html", {"products": products}  )
 
 def addproduct(request):
         form = AddProduct()

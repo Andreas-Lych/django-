@@ -1,13 +1,14 @@
-{% extends "base.html" %}
-{% load crispy_forms_filters %}
+{% load static %}
 
-{% block content %}
-  <div class="container">
-    <h1>Login user</h1>
-    <form method="POST" class="post-form">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <button type="submit" class="Buy btn btn-primary">Buy</button>
-  </form>
-  </div>
-{% endblock %}
+<div class="card">
+ {% if product.image %}
+ <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}">
+ {% else %}
+ <img src="{% static 'img/no-image.png' %}" class="card-img-top" alt="{{ product.title }}">
+ {% endif %}
+ <div class="card-body">
+   <h5 class="card-title">{{ product.title }}</h5>
+     <p class="card-text">Color: {{ product.color }}</p>
+     <p class="card-text">Price: {{ product.price }}</p>
+    </div>
+</div>
