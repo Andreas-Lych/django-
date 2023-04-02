@@ -1,5 +1,5 @@
 import logging
-from django.http import HttpResponse
+
 
 from products.models import Product
 
@@ -20,7 +20,7 @@ def index(request):
     if purchases__count is not None:
         products = products.filter(purchases__count=purchases__count)
 
-    return render(request, "index.html", {"products": products}  )
+    return render(request, "index.html", {"products": products})
 
 def addproduct(request):
         form = AddProduct()

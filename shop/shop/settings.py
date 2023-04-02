@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'profiles',
     'products',
-]
+    'feedback',
+    ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'

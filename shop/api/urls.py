@@ -1,6 +1,8 @@
 from django.urls import include, path
 from rest_framework import routers
 from api.products.views import ProductViewSet
+from api.feedback.views import FeedbackViewSet
+
 
 app_name = "api"
 

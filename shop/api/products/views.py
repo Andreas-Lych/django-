@@ -6,7 +6,7 @@ from products.models import Product
 
 class ProductViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows posts to be viewed.
+    API endpoint that allows product to be viewed.
     """
 
     queryset = Product.objects.all().order_by("-created_at")

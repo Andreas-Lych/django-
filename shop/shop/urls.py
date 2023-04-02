@@ -20,6 +20,7 @@ from django.urls import path, include
 
 from products.views import index, addproduct
 from profiles.views import profiles, register_user, user, login_view, logout_view
+from feedback.views import indexf
 
 urlpatterns = [
    path('admin/', admin.site.urls),
@@ -34,6 +35,7 @@ urlpatterns = [
    path('user/', user, name='user'),
    path('addproduct/', addproduct, name='addproduct'),
    path('', index, name='index'),
+   path('feedback/', indexf, name='feedback'),
 ]
 
 if settings.DEBUG:
