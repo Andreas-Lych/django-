@@ -14,7 +14,7 @@ def indexf(request):
                 title=form.cleaned_data["title"],
                 text=form.cleaned_data["text"]
             )
-            return redirect("indexf")
+            return redirect("feedback")
     else:
         form = AddFeedbackForm()
-    return render(request, "feedback.html", {"note": notes, "form": form})
+    return render(request, "feedback.html", {"notes": notes, "form": form})
