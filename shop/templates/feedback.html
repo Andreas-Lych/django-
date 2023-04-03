@@ -4,12 +4,12 @@
 {% block content %}
   <div class="container">
     <h1>Feedback</h1>
-<div class="card">
- <div class="card-body">
-   <h5 class="card-title">{{ feedback.title }}</h5>
-   <p class="card-text">{{ feedback.text }}</p>
- </div>
-{% load crispy_forms_filters %}
+
+    <div class="row">
+      {% for note in notes  %}
+        <div class="col-4">{{ note.text }}</div>
+      {% endfor %}
+    </div>
 
 <h2>Add Feedback</h2>
 <form method="POST" class="note-form">
