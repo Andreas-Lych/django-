@@ -5,7 +5,6 @@ from products.models import Product
 
 class ProductModelSerializer(serializers.HyperlinkedModelSerializer):
 
-
     has_image = serializers.SerializerMethodField()
     purchases_count = serializers.IntegerField()
     purchases_total = serializers.IntegerField()

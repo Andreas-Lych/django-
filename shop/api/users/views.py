@@ -30,9 +30,11 @@ class LoginView(CreateAPIView):
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
+
         user = authenticate(
-            serializer.validated_data["email"],
-            serializer.validated_data["password"],
+            request=request,
+            username=serializer.validated_data["email"],
+            password=serializer.validated_data["password"],
         )
         if user is None:
             return Response(status=status.HTTP_404_NOT_FOUND)
