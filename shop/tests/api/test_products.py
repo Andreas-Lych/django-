@@ -1,6 +1,7 @@
 import pytest
 from rest_framework.test import APIClient
 from products.models import Product
+from tests.factories import ProductFactory
 
 
 @pytest.mark.django_db
@@ -8,7 +9,7 @@ class TestProductApi:
     def setup_method(self):
         self.client = APIClient()
 
-    def test_my_index(self):
+    def test_index(self):
         response = self.client.get("/api/products/")
         assert response.status_code == 200
         assert len(response.json()) == 0
@@ -32,8 +33,10 @@ class TestProductApi:
         assert response.status_code == 204
         assert not Product.objects.exists()
 
-    def test_poupal(self):
+    def test_popular(self):
+        ProductFactory.create_batch(10)
         response = self.client.get("/api/products/popular/")
+
         assert response.status_code == 200
-        assert len(response.json()) == 0
+        assert response.json().get("count") == 10
 

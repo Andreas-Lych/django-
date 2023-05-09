@@ -21,7 +21,7 @@ class ProductViewSet(viewsets.ModelViewSet):
     permission_classes = []
 
 
-class TheMostExpensiveProductViewSet(viewsets.ModelViewSet):
+class TheMostExpensiveProductViewSet(ListAPIView):
     """    The most Expensive Product viewed.    """
 
     queryset = Product.objects.all().order_by("-price")
@@ -32,6 +32,6 @@ class TheMostExpensiveProductViewSet(viewsets.ModelViewSet):
 class TheMostPopularProductViewSet(ListAPIView):
     """    The most popular Product viewed.    """
 
-    queryset = Product.objects.annotate(purchases_total=Sum("purchases__count")).order_by("-purchases_total")
+    queryset = Product.objects.annotate(purchases_total=Sum("purchases__count", default=0)).order_by("-purchases_total")
     serializer_class = ProductSerializer
     permission_classes = []
