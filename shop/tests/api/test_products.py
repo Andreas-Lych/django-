@@ -31,3 +31,9 @@ class TestProductApi:
         response = self.client.delete(f"/api/products/{product.id}/")
         assert response.status_code == 204
         assert not Product.objects.exists()
+
+    def test_poupal(self):
+        response = self.client.get("/api/products/popular/")
+        assert response.status_code == 200
+        assert len(response.json()) == 0
+
