@@ -28,4 +28,4 @@ class ProductSerializer(serializers.Serializer):
     excerpt = serializers.CharField(allow_blank=True, allow_null=True)
     description = serializers.CharField(allow_blank=True, allow_null=True)
     created_at = serializers.DateTimeField()
-    purchases_total = serializers.DecimalField(decimal_places=5, max_digits=10)
+    purchases_total = serializers.DecimalField(decimal_places=5, max_digits=10, required=False)

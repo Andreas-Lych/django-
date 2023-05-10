@@ -13,7 +13,7 @@ router.register(r"feedback", FeedbackViewSet)
 
 urlpatterns = [
     path(
-        "products/expensive",
+        "products/expensive/",
         TheMostExpensiveProductViewSet.as_view(),
         name="products_expensive"
     ),
